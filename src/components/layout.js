@@ -40,9 +40,11 @@ const Layout = ({ children }) => {
             fontSize: `var(--font-sm)`,
           }}
         >
-          © {new Date().getFullYear()} &middot; Built with
+          © {new Date().getFullYear()} &middot; Developed by
           {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
+          <a href="https://jishnupsamal.ml" target="_blank" rel="noreferrer">
+            Jishnu Prasad Samal
+          </a>
         </footer>
       </div>
     </>
