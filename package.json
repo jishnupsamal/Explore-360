@@ -1,0 +1,43 @@
+{
+  "name": "explore-360",
+  "version": "1.0.0",
+  "description": "An web app for the explorers",
+  "main": "index.js",
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jishnu-prasad-s/Explore-360.git"
+  },
+  "keywords": [
+    "Explore-360"
+  ],
+  "author": "Jishnu Prasad Samal <jishnuprs20@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jishnu-prasad-s/Explore-360/issues"
+  },
+  "homepage": "https://github.com/jishnu-prasad-s/Explore-360#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "bootstrap": "^5.2.0",
+    "gatsby": "^4.20.0",
+    "gatsby-plugin-image": "^2.20.0",
+    "gatsby-plugin-manifest": "^4.20.0",
+    "gatsby-plugin-offline": "^5.20.0",
+    "gatsby-plugin-sharp": "^4.20.0",
+    "gatsby-source-filesystem": "^4.20.0",
+    "gatsby-transformer-sharp": "^4.20.0",
+    "leaflet": "^1.8.0",
+    "localforage": "^1.10.0",
+    "prop-types": "^15.8.1",
+    "react": "^18.1.0",
+    "react-bootstrap": "^2.4.0",
+    "react-dom": "^18.1.0",
+    "react-leaflet": "^4.0.1"
+  }
+}
