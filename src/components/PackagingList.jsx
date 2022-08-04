@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import localforage from "localforage"
 
 localforage.config({
-  driver: localforage.INDEXEDDB,
+  driver: [localforage.INDEXEDDB, localforage.WEBSQL, localforage.LOCALSTORAGE],
   name: 'Explore-360',
   storeName: 'PackagingList',
 })
