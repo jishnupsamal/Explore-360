@@ -25,6 +25,7 @@
   "dependencies": {
     "axios": "^0.27.2",
     "bootstrap": "^5.2.0",
+    "fake-indexeddb": "^4.0.0",
     "gatsby": "^4.20.0",
     "gatsby-plugin-image": "^2.20.0",
     "gatsby-plugin-manifest": "^4.20.0",

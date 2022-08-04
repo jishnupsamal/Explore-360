@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import PropTypes from "prop-types"
 import localforage from "localforage"
+import 'fake-indexeddb/auto';
 
 localforage.config({
   driver: [localforage.INDEXEDDB, localforage.WEBSQL, localforage.LOCALSTORAGE],
