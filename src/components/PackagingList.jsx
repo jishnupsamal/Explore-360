@@ -2,6 +2,12 @@ import React, { useEffect, useState } from "react"
 import PropTypes from "prop-types"
 import localforage from "localforage"
 
+localforage.config({
+  driver: localforage.INDEXEDDB,
+  name: 'Explore-360',
+  storeName: 'PackagingList',
+})
+
 const PackagingList = ({}) => {
   const [items, setItems] = useState([
     { id: 1, text: "Google", packed: false },
