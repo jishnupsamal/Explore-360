@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from "react"
 import PropTypes from "prop-types"
-import localforage from "localforage"
-import 'fake-indexeddb/auto';
+import localforage from "localforage";
 
 localforage.config({
-  driver: [localforage.INDEXEDDB, localforage.WEBSQL, localforage.LOCALSTORAGE],
   name: 'Explore-360',
   storeName: 'PackagingList',
 })
 
 const PackagingList = ({}) => {
   const [items, setItems] = useState([
-    { id: 1, text: "Google", packed: false },
-    { id: 2, text: "Google", packed: true },
+    { text: "Google", packed: false },
+    { text: "Google", packed: true },
   ])
 
   localforage.setItem("items", items)
@@ -39,7 +37,6 @@ const PackagingList = ({}) => {
   //     setItems(newItems);
   //   }
 
-  let nextId = 11
 
   return (
     <>
@@ -58,13 +55,12 @@ const PackagingList = ({}) => {
       <button
         onClick={() => {
           items.push({
-            id: nextId++,
             text: item,
             packed: false,
           })
           setItem("")
         }}
-      >
+      >{" "}
         Add
       </button>
     </>

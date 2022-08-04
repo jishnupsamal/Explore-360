@@ -5,13 +5,15 @@ import { TileLayer } from "react-leaflet/TileLayer"
 import { useMapEvents, Marker, Popup } from "react-leaflet"
 import "leaflet/dist/leaflet.css"
 const axios = require("axios").default
-delete L.Icon.Default.prototype._getIconUrl;
+// import icon from 'leaflet/dist/images/marker-icon.png';
+// import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
-L.Icon.Default.mergeOptions({
-    iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png').default,
-    iconUrl: require('leaflet/dist/images/marker-icon.png').default,
-    shadowUrl: require('leaflet/dist/images/marker-shadow.png').default
-});
+// let DefaultIcon = L.icon({
+//     iconUrl: icon,
+//     shadowUrl: iconShadow
+// });
+
+// L.Marker.prototype.options.icon = DefaultIcon;
 
 function LocationMarker() {
   const [position, setPosition] = useState(null)
