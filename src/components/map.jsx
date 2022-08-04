@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from "react"
-import PropTypes from "prop-types"
+import L from 'leaflet';
 import { MapContainer } from "react-leaflet/MapContainer"
 import { TileLayer } from "react-leaflet/TileLayer"
-import { useMapEvents, useMap, Marker, Popup } from "react-leaflet"
+import { useMapEvents, Marker, Popup } from "react-leaflet"
 import "leaflet/dist/leaflet.css"
 const axios = require("axios").default
+delete L.Icon.Default.prototype._getIconUrl;
+
+L.Icon.Default.mergeOptions({
+    iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png').default,
+    iconUrl: require('leaflet/dist/images/marker-icon.png').default,
+    shadowUrl: require('leaflet/dist/images/marker-shadow.png').default
+});
 
 function LocationMarker() {
   const [position, setPosition] = useState(null)

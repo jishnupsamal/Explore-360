@@ -10,6 +10,6 @@ const LocationPage = () => (
     </Layout>
 )
 
-export const Head = () => <Seo title="Location Report" />
+export const Head = () => <Seo title="Location Dashboard" />
 
 export default LocationPage;
