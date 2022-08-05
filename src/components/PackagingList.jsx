@@ -24,7 +24,6 @@ const PackagingList = ({}) => {
     localforage.setItem("items", items)
   }
   useEffect(() => {
-    if (typeof window !== "undefined") {
       localforage
         .getItem("items")
         .then(value => {
@@ -37,7 +36,6 @@ const PackagingList = ({}) => {
           ])
           console.log("Nothing Found...", err)
         })
-    }
   }, [])
 
   const [item, setItem] = useState("")
@@ -50,7 +48,7 @@ const PackagingList = ({}) => {
 
   return (
     <>
-      {items.map((item, index) => (
+      {items.map((index, item) => (
         <ul>
           <li key={index}>
             <input type="checkbox" checked={item.completed} />{" "}
