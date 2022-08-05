@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react"
 import PropTypes from "prop-types"
-import * as localforage from "localforage";
-import * as memoryDriver from "localforage-driver-memory";
+import * as localforage from "localforage"
+import * as memoryDriver from "localforage-driver-memory"
 
-localforage.defineDriver(memoryDriver);
+localforage.defineDriver(memoryDriver)
 localforage.config({
-  driver: [localforage.INDEXEDDB, localforage.WEBSQL, localforage.LOCALSTORAGE, memoryDriver._driver],
-  name: 'Explore-360',
-  storeName: 'PackagingList',
+  driver: [
+    localforage.INDEXEDDB,
+    localforage.WEBSQL,
+    localforage.LOCALSTORAGE,
+    memoryDriver._driver,
+  ],
+  name: "Explore-360",
+  storeName: "PackagingList",
 })
 
 const PackagingList = ({}) => {
@@ -15,21 +20,24 @@ const PackagingList = ({}) => {
     { text: "Google", packed: false },
     { text: "Google", packed: true },
   ])
-
-  localforage.setItem("items", items)
+  if (typeof window !== "undefined") {
+    localforage.setItem("items", items)
+  }
   useEffect(() => {
-    localforage
-      .getItem("items")
-      .then(value => {
-        setItems(value)
-      })
-      .catch(err => {
-        setItems([
-          { id: 1, text: "Google", packed: false },
-          { id: 2, text: "Google", packed: true },
-        ])
-        console.log("Nothing Found...", err)
-      })
+    if (typeof window !== "undefined") {
+      localforage
+        .getItem("items")
+        .then(value => {
+          setItems(value)
+        })
+        .catch(err => {
+          setItems([
+            { id: 1, text: "Google", packed: false },
+            { id: 2, text: "Google", packed: true },
+          ])
+          console.log("Nothing Found...", err)
+        })
+    }
   }, [])
 
   const [item, setItem] = useState("")
@@ -39,7 +47,6 @@ const PackagingList = ({}) => {
   //     newItems[index].completed = true
   //     setItems(newItems);
   //   }
-
 
   return (
     <>
@@ -63,7 +70,8 @@ const PackagingList = ({}) => {
           })
           setItem("")
         }}
-      >{" "}
+      >
+        {" "}
         Add
       </button>
     </>
