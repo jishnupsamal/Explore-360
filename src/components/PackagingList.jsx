@@ -15,29 +15,33 @@ localforage.config({
   storeName: "PackagingList",
 })
 
-const PackagingList = ({}) => {
+
+const PackagingList = () => {
   const [items, setItems] = useState([
     { text: "Clothes", packed: false },
     { text: "Hiking Boot", packed: false },
     { text: "Backpack Tent", packed: false },
   ])
+
+
+
   if (typeof window !== "undefined") {
     localforage.setItem("items", items)
   }
   useEffect(() => {
-      localforage
-        .getItem("items")
-        .then(value => {
-          setItems(value)
-        })
-        .catch(err => {
-          setItems([
-            { text: "Clothes", packed: false },
-            { text: "Hiking Boot", packed: false },
-            { text: "Backpack Tent", packed: false },
-          ])
-          console.log("Nothing Found...", err)
-        })
+    localforage
+      .getItem("items")
+      .then(value => {
+        setItems(value)
+      })
+      .catch(err => {
+        setItems([
+          { text: "Clothes", packed: false },
+          { text: "Hiking Boot", packed: false },
+          { text: "Backpack Tent", packed: false },
+        ])
+        console.log("Nothing Found...", err)
+      })
   }, [])
   const [itemText, setItemText] = useState("")
 
@@ -49,8 +53,8 @@ const PackagingList = ({}) => {
 
   return (
     <>
-      {items.map((item, index) => (
-        <ul>
+      {items.map((item, index) => 
+      <ul>
           <li key={index} id={index}>
             <input type="checkbox" checked={item.completed} />{" "}
             <span>
@@ -58,9 +62,13 @@ const PackagingList = ({}) => {
             </span>
           </li>
         </ul>
-      ))}
+      )}
 
-      <input type="text" value={itemText} onChange={e => setItemText(e.target.value)} />
+      <input
+        type="text"
+        value={itemText}
+        onChange={e => setItemText(e.target.value)}
+      />
       <button
         onClick={() => {
           items.push({
