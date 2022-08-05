@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from "react"
-import PropTypes from "prop-types"
+import L from 'leaflet';
 import { MapContainer } from "react-leaflet/MapContainer"
 import { TileLayer } from "react-leaflet/TileLayer"
-import { useMapEvents, useMap, Marker, Popup } from "react-leaflet"
+import { useMapEvents, Marker, Popup } from "react-leaflet"
 import "leaflet/dist/leaflet.css"
 const axios = require("axios").default
+// import icon from 'leaflet/dist/images/marker-icon.png';
+// import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+
+// let DefaultIcon = L.icon({
+//     iconUrl: icon,
+//     shadowUrl: iconShadow
+// });
+
+// L.Marker.prototype.options.icon = DefaultIcon;
 
 function LocationMarker() {
   const [position, setPosition] = useState(null)
