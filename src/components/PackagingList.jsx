@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react"
 import PropTypes from "prop-types"
 import * as localforage from "localforage"
-import * as memoryDriver from "localforage-driver-memory"
+// import * as memoryDriver from "localforage-driver-memory"
 
-localforage.defineDriver(memoryDriver)
+// localforage.defineDriver(memoryDriver)
 localforage.config({
   driver: [
     localforage.INDEXEDDB,
     localforage.WEBSQL,
     localforage.LOCALSTORAGE,
-    memoryDriver._driver,
   ],
   name: "Explore-360",
   storeName: "PackagingList",
@@ -39,7 +38,6 @@ const PackagingList = ({}) => {
           console.log("Nothing Found...", err)
         })
   }, [])
-  console.log(typeof items)
   const [itemText, setItemText] = useState("")
 
   //   const packedItem = (index) => {
