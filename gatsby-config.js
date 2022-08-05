@@ -3,7 +3,7 @@ module.exports = {
     title: `Explore 360`,
     description: `Aiding and Leading the Explorers of the World`,
     author: `@jishnu-prasad-s`,
-    siteUrl: `https://explore360.netlify.app/`,
+    siteUrl: `https://explore360.vercel.app/`,
   },
   plugins: [
     `gatsby-plugin-image`,
