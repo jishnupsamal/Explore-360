@@ -22,13 +22,13 @@ const PackagingList = () => {
     { id: 3, text: "Backpack Tent", packed: false },
   ])
   const [itemText, setItemText] = useState("")
-  
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       localforage.setItem("items", items)
     }
   })
-  
+
   useEffect(() => {
     localforage
       .getItem("items")
@@ -41,15 +41,6 @@ const PackagingList = () => {
       })
   }, [])
 
-  
-  
-  
-
-  //   const packedItem = (index) => {
-  //     const newItems = [...items]
-  //     newItems[index].completed = true
-  //     setItems(newItems);
-  //   }
   const updateList = () => {
     items.push({
       id: Object.keys(items).length + 1,
@@ -61,24 +52,41 @@ const PackagingList = () => {
     }
     setItemText("")
   }
+
+  const markPacked = (index) => {
+    const newItems = [...items];
+    newItems[index].packed =  true;
+    console.log(newItems)
+    setItems(newItems);
+  };
+
   console.log(items)
   return (
     <>
-      <ul>
-        {items.map(item => {
-          return (
-          <li key={item.id}>
-            {item.text}
-          </li>)
-        })}
-      </ul>
-
       <input
         type="text"
         value={itemText}
         onChange={e => setItemText(e.target.value)}
-      />
+      /> {'   '}
       <button onClick={updateList}>Add</button>
+      <ul style={{listStyleType: 'none'}}>
+        {items.map((item, index) => {
+          return <li key={item.id} style={{ textDecoration: item.packed && "line-through"}}>
+            <input type="checkbox" checked={item.packed} onChange={(e) => markPacked(index)} /> {' '}
+            {item.text} {' '}
+            <button onClick={() => {
+              setItems(
+                items.filter(i =>
+                  i.id !== item.id
+                )
+              );
+            }}>
+              Delete
+            </button>
+          
+          </li>
+        })}
+      </ul>
     </>
   )
 }
