@@ -32,4 +32,4 @@
 
 ## Creator
 
-* [Jishnu Prasad Samal](https://github.com/jishnu-prasad-s) 
+* [Jishnu Prasad Samal](https://jishnupsamal.ml) 
