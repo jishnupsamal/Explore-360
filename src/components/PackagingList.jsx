@@ -15,72 +15,70 @@ localforage.config({
   storeName: "PackagingList",
 })
 
-
 const PackagingList = () => {
   const [items, setItems] = useState([
-    { text: "Clothes", packed: false },
-    { text: "Hiking Boot", packed: false },
-    { text: "Backpack Tent", packed: false },
+    { id: 1, text: "Clothes", packed: false },
+    { id: 2, text: "Hiking Boot", packed: false },
+    { id: 3, text: "Backpack Tent", packed: false },
   ])
-
-
-
-  if (typeof window !== "undefined") {
-    localforage.setItem("items", items)
-  }
+  const [itemText, setItemText] = useState("")
+  
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localforage.setItem("items", items)
+    }
+  })
+  
   useEffect(() => {
     localforage
       .getItem("items")
-      .then(value => {
-        setItems(value)
+      .then(values => {
+        setItems(values)
+        return items
       })
       .catch(err => {
-        setItems([
-          { text: "Clothes", packed: false },
-          { text: "Hiking Boot", packed: false },
-          { text: "Backpack Tent", packed: false },
-        ])
         console.log("Nothing Found...", err)
       })
   }, [])
-  const [itemText, setItemText] = useState("")
+
+  
+  
+  
 
   //   const packedItem = (index) => {
   //     const newItems = [...items]
   //     newItems[index].completed = true
   //     setItems(newItems);
   //   }
-
+  const updateList = () => {
+    items.push({
+      id: Object.keys(items).length + 1,
+      text: itemText,
+      packed: false,
+    })
+    if (typeof window !== "undefined") {
+      localforage.setItem("items", items)
+    }
+    setItemText("")
+  }
+  console.log(items)
   return (
     <>
-      {items.map((item, index) => 
       <ul>
-          <li key={index} id={index}>
-            <input type="checkbox" checked={item.completed} />{" "}
-            <span>
-              {item.packed ? "Packed" : null} {item.text}
-            </span>
-          </li>
-        </ul>
-      )}
+        {items.map(item => {
+          return (
+          <li key={item.id}>
+            {item.text.toString()}
+          </li>)
+        })}
+      </ul>
 
       <input
         type="text"
         value={itemText}
         onChange={e => setItemText(e.target.value)}
       />
-      <button
-        onClick={() => {
-          items.push({
-            text: itemText,
-            packed: false,
-          })
-          setItemText("")
-        }}
-      >
-        {" "}
-        Add
-      </button>
+      <button onClick={updateList}>Add</button>
     </>
   )
 }
