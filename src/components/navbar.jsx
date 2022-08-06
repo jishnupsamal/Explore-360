@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 import "bootstrap/dist/css/bootstrap.min.css"
 import Container from "react-bootstrap/Container"
 import Nav from "react-bootstrap/Nav"
@@ -12,7 +13,11 @@ function NavBar({ siteTitle }) {
       {["xl"].map(expand => (
         <Navbar key={expand} bg="light" expand={expand} className="mb-3">
           <Container fluid>
-            <Navbar.Brand href="#">{siteTitle}</Navbar.Brand>
+            <Navbar.Brand href="#">
+              <StaticImage src="../images/logo.png" alt="Explore 360 Logo" width={35} height={35}/>
+              {" "}
+              {siteTitle}
+            </Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
@@ -26,9 +31,15 @@ function NavBar({ siteTitle }) {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link><Link to="/">Home</Link></Nav.Link>
-                  <Nav.Link><Link to="/location">Location Dashboard</Link></Nav.Link>
-                  <Nav.Link><Link to="/bag-pack">Bag Pack</Link></Nav.Link>
+                  <Nav.Link>
+                    <Link to="/">Home</Link>
+                  </Nav.Link>
+                  <Nav.Link>
+                    <Link to="/location">Location Dashboard</Link>
+                  </Nav.Link>
+                  <Nav.Link>
+                    <Link to="/bag-pack">Bag Pack</Link>
+                  </Nav.Link>
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
