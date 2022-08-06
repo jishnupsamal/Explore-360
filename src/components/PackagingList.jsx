@@ -68,7 +68,7 @@ const PackagingList = () => {
         {items.map(item => {
           return (
           <li key={item.id}>
-            {item.text.toString()}
+            {item.text}
           </li>)
         })}
       </ul>
