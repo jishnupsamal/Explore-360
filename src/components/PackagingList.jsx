@@ -15,65 +15,78 @@ localforage.config({
   storeName: "PackagingList",
 })
 
-const PackagingList = ({}) => {
+const PackagingList = () => {
   const [items, setItems] = useState([
-    { text: "Google", packed: false },
-    { text: "Google", packed: true },
+    { id: 1, text: "Clothes", packed: false },
+    { id: 2, text: "Hiking Boot", packed: false },
+    { id: 3, text: "Backpack Tent", packed: false },
   ])
-  if (typeof window !== "undefined") {
-    localforage.setItem("items", items)
-  }
+  const [itemText, setItemText] = useState("")
+
   useEffect(() => {
     if (typeof window !== "undefined") {
-      localforage
-        .getItem("items")
-        .then(value => {
-          setItems(value)
-        })
-        .catch(err => {
-          setItems([
-            { id: 1, text: "Google", packed: false },
-            { id: 2, text: "Google", packed: true },
-          ])
-          console.log("Nothing Found...", err)
-        })
+      localforage.setItem("items", items)
     }
+  })
+
+  useEffect(() => {
+    localforage
+      .getItem("items")
+      .then(values => {
+        setItems(values)
+        return items
+      })
+      .catch(err => {
+        console.log("Nothing Found...", err)
+      })
   }, [])
 
-  const [item, setItem] = useState("")
+  const updateList = () => {
+    items.push({
+      id: Object.keys(items).length + 1,
+      text: itemText,
+      packed: false,
+    })
+    if (typeof window !== "undefined") {
+      localforage.setItem("items", items)
+    }
+    setItemText("")
+  }
 
-  //   const packedItem = (index) => {
-  //     const newItems = [...items]
-  //     newItems[index].completed = true
-  //     setItems(newItems);
-  //   }
+  const markPacked = (index) => {
+    const newItems = [...items];
+    newItems[index].packed =  true;
+    console.log(newItems)
+    setItems(newItems);
+  };
 
+  console.log(items)
   return (
     <>
-      {items.map((item, index) => (
-        <ul>
-          <li key={index}>
-            <input type="checkbox" checked={item.completed} />{" "}
-            <span>
-              {item.packed ? "Packed" : null} {item.text}
-            </span>
+      <input
+        type="text"
+        value={itemText}
+        onChange={e => setItemText(e.target.value)}
+      /> {'   '}
+      <button onClick={updateList}>Add</button>
+      <ul style={{listStyleType: 'none'}}>
+        {items.map((item, index) => {
+          return <li key={item.id} style={{ textDecoration: item.packed && "line-through"}}>
+            <input type="checkbox" checked={item.packed} onChange={(e) => markPacked(index)} /> {' '}
+            {item.text} {' '}
+            <button onClick={() => {
+              setItems(
+                items.filter(i =>
+                  i.id !== item.id
+                )
+              );
+            }}>
+              Delete
+            </button>
+          
           </li>
-        </ul>
-      ))}
-
-      <input type="text" value={item} onChange={e => setItem(e.target.value)} />
-      <button
-        onClick={() => {
-          items.push({
-            text: item,
-            packed: false,
-          })
-          setItem("")
-        }}
-      >
-        {" "}
-        Add
-      </button>
+        })}
+      </ul>
     </>
   )
 }
