@@ -8,12 +8,15 @@ import icon from "leaflet/dist/images/marker-icon.png"
 import iconShadow from "leaflet/dist/images/marker-shadow.png"
 const axios = require("axios").default
 
-let DefaultIcon = L.icon({
-  iconUrl: icon,
-  shadowUrl: iconShadow,
-})
+if (typeof window !== 'undefined') {
+  let DefaultIcon = L.icon({
+    iconUrl: icon,
+    shadowUrl: iconShadow,
+  })
+  
+  L.Marker.prototype.options.icon = DefaultIcon
+}
 
-L.Marker.prototype.options.icon = DefaultIcon
 function LocationMarker() {
   const [position, setPosition] = useState(null)
   const map = useMapEvents({
