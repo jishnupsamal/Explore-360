@@ -12,6 +12,8 @@
 
 - **Progessive Web App** : Being a PWA, it could be installed from the browser and easily accessed from the device's app list.
 
+- **Cross Platform** : Runs on any device having an active internet connection.
+
 - **World Clock** : The World Clock automatically sets timezone based on user's IP Address.
 
 - **Weather Report** : Provides weather information of the travellers' location, so that they could plan their tour accordingly.
