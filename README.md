@@ -16,7 +16,7 @@
 
 - **World Clock** : The World Clock automatically sets timezone based on user's IP Address.
 
-- **Weather Report** : Provides weather information of the travellers' location, so that they could plan their tour accordingly.
+- **Weather Forecast** : Provides weather information of the travellers' location, so that they could plan their tour accordingly.
 
 - **Location Dashboard** : Allows the the user to access his/her location in real-time and also allows to look for public facilities like hospitals, restaurants, hotels,etc., nearby.
 
