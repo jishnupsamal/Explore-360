@@ -11,7 +11,7 @@ const WorldClock = ({}) => {
 
   useEffect(() => {
     axios
-      .get("http://ipapi.co/json/")
+      .get("https://ipapi.co/json/")
       .then(res => {
         setData(res.data)
       })
