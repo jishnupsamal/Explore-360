@@ -2,6 +2,7 @@ import * as React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import WorldClock from "../components/WorldClock";
+import Weather from "../components/Weather";
 
 const IndexPage = () => (
   <Layout>
