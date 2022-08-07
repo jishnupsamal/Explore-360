@@ -11,7 +11,7 @@ const WorldClock = ({}) => {
 
   useEffect(() => {
     axios
-      .get("http://ip-api.com/json/?fields=42004479")
+      .get("http://ipapi.co/json/")
       .then(res => {
         setData(res.data)
       })
@@ -32,7 +32,7 @@ const WorldClock = ({}) => {
             />
           </Card.Title>
         </Card.Body>
-        <Card.Footer>{data.country}</Card.Footer>
+        <Card.Footer>{data.country_name}</Card.Footer>
       </Card>
     </>
   )
