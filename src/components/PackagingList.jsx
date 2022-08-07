@@ -68,7 +68,7 @@ const PackagingList = () => {
         type="text"
         value={itemText}
         onChange={e => setItemText(e.target.value)}
-      />
+      /> {" "}
       <button onClick={updateList}>Add</button>
       <ul style={{listStyleType: 'none'}}>
         {items.map((item, index) => {
