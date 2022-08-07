@@ -11,7 +11,7 @@ const WorldClock = ({}) => {
 
   useEffect(() => {
     axios
-      .get("https://ipapi.co/json/?fields=582143")
+      .get("http://ip-api.com/json/?fields=42004479")
       .then(res => {
         setData(res.data)
         console.log(res.data)
@@ -21,8 +21,6 @@ const WorldClock = ({}) => {
       })
   }, [])
 
-  console.log(data.utc_offset)
-  console.log(data.country_name)
   return (
     <>
       <Card border="success" className="text-center d-flex justify-content-center">
@@ -31,11 +29,11 @@ const WorldClock = ({}) => {
             <Moment
               format="hh [:] mm [:] ss a"
               interval={1000}
-              tz={`${data.utc_offset}`}
+              tz={data.timezone}
             />
           </Card.Title>
         </Card.Body>
-        <Card.Footer>{data.country_name}</Card.Footer>
+        <Card.Footer>{data.country}</Card.Footer>
       </Card>
     </>
   )
