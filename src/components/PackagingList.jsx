@@ -63,11 +63,12 @@ const PackagingList = () => {
   console.log(items)
   return (
     <>
+      {/* { items !== null && ( */}
       <input
         type="text"
         value={itemText}
         onChange={e => setItemText(e.target.value)}
-      /> {'   '}
+      /> {" "}
       <button onClick={updateList}>Add</button>
       <ul style={{listStyleType: 'none'}}>
         {items.map((item, index) => {
@@ -87,6 +88,7 @@ const PackagingList = () => {
           </li>
         })}
       </ul>
+      
     </>
   )
 }
