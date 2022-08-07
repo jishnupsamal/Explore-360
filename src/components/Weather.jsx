@@ -70,17 +70,21 @@ const Weather = () => {
               <MdLocationPin /> {weather.name}
             </li>
             <li>
-              {/* <FaTemperatureLow /> {weather.main.temp} &#176;C */}
+              <FaTemperatureLow /> {weather.main.temp} &#176;C
             </li>
-            <li>
+            {/* <li>
               <BsSunriseFill /> <BsSunsetFill />
-            </li>
+            </li> */}
             <li>
-              {/* <BsWind /> {weather.wind.speed} m/s{" "} */}
+              <BsWind /> {weather.wind.speed} m/s{" "}
             </li>
-            {/* <li>Cloudiness: {weather.clouds.all}%</li> */}
+            <li>Cloudiness: {weather.clouds.all}%</li>
             <li>
-              {/* <MdVisibility /> {weather.visibility `m`} */}
+              <MdVisibility />{" "} {weather.visibility > 1000 ? (
+                `${(weather.visibility)/1000} km`
+              ):(
+                `${weather.visibility} m`
+              )}
             </li>
           </ul>
         </Card.Body>
