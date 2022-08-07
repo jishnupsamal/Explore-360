@@ -13,13 +13,13 @@ const Weather = () => {
 
   useEffect(() => {
     axios
-      .get("http://ip-api.com/json/?fields=42004479")
+      .get("https://ipapi.co/json/")
       .then(res => {
         return res.data
       })
       .then(location => {
         return axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?units=${units}&lat=${location.lat}&lon=${location.lon}&appid=${process.env.GATSBY_OPENWEATHER_API_KEY}`
+          `https://api.openweathermap.org/data/2.5/weather?units=${units}&lat=${location.latitude}&lon=${location.longitude}&appid=${process.env.GATSBY_OPENWEATHER_API_KEY}`
         )
       })
       .then(res => {

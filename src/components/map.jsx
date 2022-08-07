@@ -40,7 +40,7 @@ const Map = () => {
   const [location, setLocation] = useState("")
   useEffect(() => {
     axios
-      .get("http://ip-api.com/json/?fields=42004479")
+      .get("http://ipapi.co/json/")
       .then(res => {
         console.log(res)
         setLocation(res.data)
@@ -71,11 +71,11 @@ const Map = () => {
         <h4>Know Your Locality</h4>
         <p>
           <ul>
-            <li>{`Area: ${location.city}, ${location.country}`}</li>
+            <li>{`Area: ${location.city}, ${location.country_name}`}</li>
             <li>{`Timezone: ${
               location.timezone }`}
             </li>
-            <li>{`Currency: ${location.currency}`}</li>
+            <li>{`Currency: ${location.currency_name} (${location.currency})`}</li>
           </ul>
         </p>
       </div>
