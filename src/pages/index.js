@@ -9,6 +9,7 @@ const IndexPage = () => (
     <Seo title="Home" />
     <h1>Explore 360</h1>
     <WorldClock />
+    <Weather />
   </Layout>
 )
 
