@@ -40,7 +40,7 @@ const Map = () => {
   const [location, setLocation] = useState("")
   useEffect(() => {
     axios
-      .get("http://ipapi.co/json/")
+      .get("https://ipapi.co/json/")
       .then(res => {
         console.log(res)
         setLocation(res.data)
