@@ -1,4 +1,10 @@
-# Explore 360
+<div align="center">
+<img src="src/images/logo.png" width="100" height="100"/>
+</div>
+
+<div align="center">
+<h1>Explore 360</h1>
+</div>
 
 **Explore 360** is a progressive web app built to assist travellers and explorers :camera:. 
 
