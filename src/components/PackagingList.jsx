@@ -85,7 +85,6 @@ const PackagingList = () => {
           <BsPlusLg style={{ fontSize: "1.1rem" }} />
         </Button>
       </div>
-      {items !== null && (
         <ul style={{ listStyleType: "none" }}>
           {items.map((item, index) => {
             return (
@@ -113,7 +112,6 @@ const PackagingList = () => {
             )
           })}
         </ul>
-      )}
     </>
   )
 }
