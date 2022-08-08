@@ -16,7 +16,7 @@
 
 ## Features
 
-- **Progessive Web App** : Being a PWA, it could be installed from the browser and easily accessed from the device's app list.
+- **Progressive Web App** : Being a PWA, it could be installed from the browser and easily accessed from the device's app list.
 
 - **Cross Platform** : Runs on any device having an active internet connection.
 
