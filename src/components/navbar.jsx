@@ -1,7 +1,9 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+import "@fontsource/comfortaa"
 import "bootstrap/dist/css/bootstrap.min.css"
+import * as style from "../components/index.module.css"
 import Container from "react-bootstrap/Container"
 import Nav from "react-bootstrap/Nav"
 import Navbar from "react-bootstrap/Navbar"
@@ -16,7 +18,7 @@ function NavBar({ siteTitle }) {
             <Navbar.Brand href="#">
               <StaticImage src="../images/logo.png" alt="Explore 360 Logo" width={35} height={35}/>
               {" "}
-              {siteTitle}
+              <span className={`${style.heading}`}>{siteTitle}</span>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
@@ -26,7 +28,7 @@ function NavBar({ siteTitle }) {
             >
               <Offcanvas.Header closeButton>
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                  {siteTitle}
+                  <span className={`${style.heading}`}>{siteTitle}</span>
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>

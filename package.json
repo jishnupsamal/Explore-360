@@ -23,6 +23,8 @@
   },
   "homepage": "https://github.com/jishnu-prasad-s/Explore-360#readme",
   "dependencies": {
+    "@fontsource/comfortaa": "^4.5.9",
+    "@fontsource/merriweather": "^4.5.13",
     "axios": "^0.27.2",
     "bootstrap": "^5.2.0",
     "fake-indexeddb": "^4.0.0",

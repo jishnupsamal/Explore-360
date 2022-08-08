@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
 import Card from "react-bootstrap/Card"
-import Spinner from 'react-bootstrap/Spinner';
+import Spinner from "react-bootstrap/Spinner"
 import { MdLocationPin, MdVisibility } from "react-icons/md"
 import { FaTemperatureLow } from "react-icons/fa"
 import { BsWind, BsCloudsFill } from "react-icons/bs"
@@ -25,28 +25,6 @@ const Weather = () => {
       .then(res => {
         return setWeather(res.data)
       })
-
-    //   axios
-    //     .get("http://ip-api.com/json/?fields=42004479")
-    //     .then(res => {
-    //       console.log(res.data.lat)
-    //       setLocation(res.data)
-    //     })
-    //     .then(
-
-    //     )
-
-    //   axios
-    //     .get(
-    //       `https://api.openweathermap.org/data/2.5/weather?units=${units}&lat=${location.lat}&lon=${location.lon}&appid=${process.env.GATSBY_OPENWEATHER_API_KEY}`
-    //     )
-    //     .then(res => {
-    //       setWeather(res.data)
-    //       console.log(weather)
-    //     })
-    //     .catch(err => {
-    //       console.log(err)
-    //     })
   }, [])
 
   if (!weather) return null
@@ -57,11 +35,11 @@ const Weather = () => {
         border="primary"
         className="text-center d-flex justify-content-center bg-warning text-light my-4"
       >
-        {weather !== null ? (
-          <Card.Body>
-            {/* <Card.Title width="3rem" as="h2">
+        <Card.Body>
+          {/* <Card.Title width="3rem" as="h2">
             
           </Card.Title> */}
+          {weather !== null ? (
             <ul style={{ listStyleType: "none" }}>
               <li>
                 <img
@@ -78,9 +56,6 @@ const Weather = () => {
               <li>
                 <FaTemperatureLow /> {weather.main.temp} &#176;C
               </li>
-              {/* <li>
-              <BsSunriseFill /> <BsSunsetFill />
-            </li> */}
               <li>
                 <BsWind /> {weather.wind.speed} m/s{" "}
               </li>
@@ -94,10 +69,10 @@ const Weather = () => {
                   : `${weather.visibility} m`}
               </li>
             </ul>
-          </Card.Body>
-        ) : (
-          <Spinner animation="grow" variant="success" />
-        )}
+          ) : (
+            <Spinner animation="grow" variant="success" />
+          )}
+        </Card.Body>
       </Card>
     </>
   )
