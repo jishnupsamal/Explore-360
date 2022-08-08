@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
+import "bootstrap/dist/css/bootstrap.min.css"
 import Card from "react-bootstrap/Card"
 import Spinner from "react-bootstrap/Spinner"
 import { MdLocationPin, MdVisibility } from "react-icons/md"
